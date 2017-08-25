@@ -28,9 +28,42 @@ What is the greatest product of four adjacent numbers
 in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
 """
 import fileinput
-nums = []
-for line in fileinput.input('EP11arr.txt'):
-    nums.append(list(map(int, (line[:-1].split(' ')))))
-for i in nums:
-	for j in i[:-4]:
-		prod = j[0] * j[1] * j[2] * j[3]
+
+def main():
+	nums = []
+	for line in fileinput.input('EP11arr.txt'):
+	    nums.append(list(map(int, (line[:-1].split(' ')))))
+	print(max([calc_row(nums), calc_col(nums), calc_dia1(nums), calc_dia2(nums)]))
+
+def calc_row(nums):
+	prod = []
+	for i in range(17):
+		for j in range(17):
+			prod.append(((nums[i][j] * nums[i][j+1] * nums[i][j+2] * nums[i][j+3]),(i,j)))
+	return max(prod)
+
+def calc_col(nums):
+	prod = []
+	for i in range(17):
+		for j in range(17):
+			prod.append(((nums[i][j] * nums[i+1][j] * nums[i+2][j] * nums[i+3][j]),(i,j)))
+	return max(prod)
+
+def calc_dia1(nums):
+	'''右下'''
+	prod = []
+	for i in range(17):
+		for j in range(17):
+			prod.append((nums[i][j] * nums[i+1][j+1] * nums[i+2][j+2] * nums[i+3][j+3],(i,j)))
+	return max(prod)
+
+def calc_dia2(nums):
+	'''左下'''
+	prod = []
+	for i in range(3,20):
+		for j in range(17):
+			prod.append((nums[i][j] * nums[i-1][j+1] * nums[i-2][j+2] * nums[i-3][j+3],(i,j)))
+	return max(prod)
+
+if __name__ == '__main__':
+	main()
