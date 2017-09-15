@@ -39,11 +39,11 @@ def is_leap(year):
 def get_week(year, month, day):
     weekdays = ['Monday', 'Tuesday', 'Wednesday',
                 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    days_leap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    days_not_leap = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    days_leap = [0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30]
+    days_not_leap = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30]
     distance = 0
-    for i in range(1900, year + 1):
-        if is_leap(year):
+    for i in range(1900, year):
+        if is_leap(i):
             distance += 366
         else:
             distance += 365
@@ -52,10 +52,9 @@ def get_week(year, month, day):
             distance += days_leap[i]
         else:
             distance += days_not_leap[i]
-    distance += day
+    distance += (day - 1)
     return weekdays[distance % 7]
 
 
 if __name__ == '__main__':
-    # main()
-    print(get_week(1901, 1, 1))
+    main()
