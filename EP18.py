@@ -5,14 +5,15 @@ def main():
     nums, bits, sums = [[], [], []]
     for line in fileinput.input('EP18data.txt'):
         nums.append(list(map(int, (line[:-1].split(' ')))))
-    for i in range(2**(len(nums[-1]) - 1)):
+    length = len(nums[-1]) - 1
+    for i in range(2**length):
         temp = 0
         summary = nums[0][temp]
-        bits = get_bits(i)
+        bits = get_bits(i, length)
         for (item, index) in zip(bits, range(1, len(nums[-1]))):
             temp += item
             summary += nums[index][temp]
-        sums.append(summary)
+        sums.append((summary, bits))
     print(max(sums))
 
 
