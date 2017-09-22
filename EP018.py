@@ -3,7 +3,7 @@ import fileinput
 
 def main():
     nums, bits, sums = [[], [], []]
-    for line in fileinput.input('EP18data.txt'):
+    for line in fileinput.input('EP018data.txt'):
         nums.append(list(map(int, (line[:-1].split(' ')))))
     length = len(nums[-1]) - 1
     for i in range(2**length):

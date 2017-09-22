@@ -27,7 +27,8 @@ def num_to_word(num):
     dict_dec = {2: 'twen', 3: 'thir', 4: 'for', 5: 'fif',
                 6: 'six', 7: 'seven', 8: 'eigh', 9: 'nine'}
     word = ''
-    uni, dec, hun, tho = [num % 10, num // 10 % 10, num // 100 % 10, num // 1000]
+    uni, dec, hun, tho = [num % 10, num // 10 %
+                          10, num // 100 % 10, num // 1000]
     if tho > 0:
         word += dict_word[tho] + ' thousand'
         if num % 1000 > 0:

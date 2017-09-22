@@ -16,8 +16,8 @@ def is_prime(num):
 while True:
     if is_prime(number):
         count += 1
-        print count
+        print(count)
     if count == 2333:
         break
     number += 1
-print number
+print(number)

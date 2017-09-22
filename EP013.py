@@ -4,11 +4,13 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 
 import fileinput
 
+
 def main():
-	nums = 0
-	for line in fileinput.input("EP13arr.txt"):
-	    nums += int(line)
-	print(nums)
+    nums = 0
+    for line in fileinput.input("EP013data.txt"):
+        nums += int(line)
+    print(nums)
+
 
 if __name__ == '__main__':
-	main()
+    main()

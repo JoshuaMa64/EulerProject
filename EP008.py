@@ -31,12 +31,12 @@ import fileinput
 def main():
     bignumber = ''
     arrprod = []
-    for line in fileinput.input("EP8arr.txt"):
+    for line in fileinput.input("EP008data.txt"):
         bignumber += line[:-1]
     for i in range(987):
         prod = 1
         for k in range(13):
-            prod *= int(bignumber[i+k])
+            prod *= int(bignumber[i + k])
         arrprod.append(prod)
     print(max(arrprod))
 

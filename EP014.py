@@ -14,23 +14,26 @@ Which starting number, under one million, produces the longest chain?
 NOTE: Once the chain starts the terms are allowed to go above one million.
 """
 
+
 def collatz(num):
-	chain = [num]
-	while num != 1:
-		if num % 2 == 0:
-			num //= 2
-		else:
-			num = 3 * num + 1
-		chain.append(num)
-	return len(chain)
+    chain = [num]
+    while num != 1:
+        if num % 2 == 0:
+            num //= 2
+        else:
+            num = 3 * num + 1
+        chain.append(num)
+    return len(chain)
+
 
 def main():
-	longest_chain = 0
-	for i in range(1, 1000001):
-		if longest_chain < collatz(i):
-			num = i
-			longest_chain = collatz(i)
-	print((longest_chain, num))
+    longest_chain = 0
+    for i in range(1, 1000001):
+        if longest_chain < collatz(i):
+            num = i
+            longest_chain = collatz(i)
+    print((longest_chain, num))
+
 
 if __name__ == '__main__':
-	main()
+    main()

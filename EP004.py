@@ -7,14 +7,14 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 """
 from math_ex import *
 
+
 def main():
     vals = []
     for i in range(100, 999):
         for j in range(100, 999):
-            if is_palindrome(i*j):
-                vals.append(i*j)
+            if is_palindrome(i * j):
+                vals.append(i * j)
     print(max(vals))
-
 
 
 if __name__ == '__main__':
