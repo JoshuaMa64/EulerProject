@@ -11,3 +11,21 @@ So, COLIN would obtain a score of 938 × 53 = 49714.
 
 What is the total of all the name scores in the file?
 """
+
+
+def main():
+    with open('EP022data.txt', 'r') as f:
+        names = f.read().replace('"', '').split(',')
+    names.sort()
+    scores = 0
+    for name in names:
+        score = 0
+        for ch in name:
+            score += ord(ch) - ord('@')
+        score *= names.index(name) + 1
+        scores += score
+    print(score)
+
+
+if __name__ == '__main__':
+    main()
