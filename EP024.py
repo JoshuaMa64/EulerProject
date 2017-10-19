@@ -8,3 +8,20 @@ The lexicographic permutations of 0, 1 and 2 are:
 
 What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 """
+from math import factorial as fac
+
+
+def main():
+    numbers = list('0123456789')
+    rank = 1000000
+    permutation_need = ''
+    for i in range(10)[::-1]:
+        index = rank // fac(i)
+        rank = rank - fac(i) * index
+        permutation_need += numbers[index]
+        numbers.remove(numbers[index])
+    print(permutation_need)
+
+
+if __name__ == '__main__':
+    main()
