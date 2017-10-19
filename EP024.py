@@ -14,6 +14,7 @@ from math import factorial as fac
 def main():
     numbers = list('0123456789')
     rank = 1000000
+    rank -= 1
     permutation_need = ''
     for i in range(10)[::-1]:
         index = rank // fac(i)

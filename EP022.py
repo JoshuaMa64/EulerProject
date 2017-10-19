@@ -24,7 +24,7 @@ def main():
             score += ord(ch) - ord('@')
         score *= names.index(name) + 1
         scores += score
-    print(score)
+    print(scores)
 
 
 if __name__ == '__main__':
